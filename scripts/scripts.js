@@ -6,29 +6,37 @@ var cover_page = document.getElementById("page-1");
 var frets = document.getElementsByClassName("page-fret");
 var pages = document.getElementsByClassName("page");
 var tester = true;
+var wheeler = 0;
+var current_pos = 0;
+var menuHide = true;
 
 
-function pageChanger(num) {
-  page = num;
+function pageChanger() {
   offset = cover_page.offsetHeight;
   for(let fret of frets) {
     fret.style = unset;
     fret.previousElementSibling.style = unset;
   }
-  main_tape.style.top = (-(offset*page))+"px";
+  current_pos = (-(offset*page));
+  main_tape.style.top = current_pos+"px";
   frets[page].style = "width: 25px";
   frets[page].previousElementSibling.style = "display: inline-block";
 }
 
+function resizeChanger() {
+  offset = cover_page.offsetHeight;
+  console.log(offset*page);
+  main_tape.style.top = (-(offset*page))+"px";
+}
+
 function testPager() {
-  if(tester) {
-    page++;
-    tester = (page == 4 ? false : true);
-  }else {
-    page--;
-    tester = (page == 0 ? true : false);
-  }
-  pageChanger(page);
+  page = (page+1)%5;
+  pageChanger();
+}
+
+function fretChanger(num) {
+  page = num;
+  pageChanger();
 }
 
 function savePage() {
@@ -40,5 +48,40 @@ function retPage() {
   if(oreo.length > 0) {
     page = parseInt(oreo.slice(5));
   }
-  pageChanger(page);
+  pageChanger();
 }
+
+function resetOffset() {
+  main_tape.style.top = (page*(-(cover_page.offsetHeight)))+"px";
+  wheeler = 0;
+}
+
+function wheelChanger(event) {
+  console.log(event.deltaY);
+  wheeler += event.deltaY;
+  main_tape.style.top = (current_pos+ (wheeler > 0 ? -20 : 20) )+"px";
+  if(wheeler >= 9) {
+    wheeler = 0;
+    page = page + (page < 4 ? 1 : 0);
+    pageChanger();
+  }else if(wheeler <= -9) {
+    wheeler = 0;
+    page = page - (page > 0 ? 1 : 0);
+    pageChanger();
+  }else {
+    setTimeout(resetOffset, 400);
+  }
+}
+
+function menuOpener(event) {
+  if(menuHide){
+    document.getElementById("emergent-menu-container").style = "visibility:visible; opacity: 1;";
+    menuHide = false;
+  }else {
+    document.getElementById("emergent-menu-container").style = unset;
+    menuHide = true;
+  }
+}
+
+window.addEventListener("resize", resizeChanger);
+main_tape.addEventListener("wheel", wheelChanger);

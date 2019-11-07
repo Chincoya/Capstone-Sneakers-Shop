@@ -11,6 +11,10 @@ body {
   height: calc(500vh - 80px);
 }
 
+.page {
+  height: calc(100vh - 80px);
+}
+
 .page:first-child {
   flex-direction: column;
 }

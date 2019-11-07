@@ -158,7 +158,7 @@ img {
 }
 
 .h-100 {
-  height: 100vh;
+  height: 100%;
 }
 
 .position-relative {
@@ -167,6 +167,10 @@ img {
 
 .position-absolute {
   position: absolute;
+}
+
+.position-fixed {
+  position: fixed;
 }
 
 body {

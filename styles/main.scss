@@ -1,8 +1,7 @@
-
-@import "custom-reset";
-@import "custom-type";
-@import "custom-colors";
-@import "custom-displays";
+@import "./custom-reset";
+@import "./custom-type";
+@import "./custom-colors";
+@import "./custom-displays";
 
 body {
   background-color: white;

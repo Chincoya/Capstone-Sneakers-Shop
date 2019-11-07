@@ -3,7 +3,19 @@ body {
   overflow: hidden;
 }
 .header {
-  z-index: 1040;
+  z-index: 1050;
+}
+.cover-container {
+  transition-duration: 0.2s;
+}
+.collection-container {
+  transition-duration: 0.2s;
+}
+.collection-details {
+  transition-duration: 0.2s;
+}
+.page {
+  transition: top 0.2s;
 }
 .main {
   z-index: 1020;
@@ -16,4 +28,16 @@ body {
   background-image: url("../img/main-cover.png");
   background-position: center;
   background-size: cover;
+}
+.footer {
+  z-index: 1050;
+}
+.emergent-menu-container {
+  z-index: 1040;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s;
+}
+[class$="-menu-section"] {
+  list-style: none;
 }

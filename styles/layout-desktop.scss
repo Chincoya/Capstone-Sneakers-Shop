@@ -13,6 +13,10 @@
   height: 500vh;
 }
 
+.page {
+  height: 100vh;
+}
+
 .cover-container {
   width: 50%;
   height: 100vh;
@@ -118,3 +122,26 @@
   display: none;
 }
 
+.emergent-menu-container {
+  flex-direction: column;
+  justify-content: center;  
+}
+
+.emergent-menu {
+  display: flex;
+  align-items: center;
+  height: 50%;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  justify-content: center;
+}
+
+[class$="-menu-section"] {
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.menu-element {
+  padding: 10px 0;
+}

@@ -18,7 +18,7 @@
 <body onbeforeunload="savePage()" onload="retPage()">
     <header class="header bg-white flex">
         <div class="brand-head">
-            <a href="index.html" class="a-no-deco text-dark font-18 condensed embold inline-block">
+            <a onclick="fretChanger(0)" href="#" class="a-no-deco text-dark font-18 condensed embold inline-block">
                   Daniel &#183 Chincoya
             </a>
         </div>
@@ -29,7 +29,7 @@
             <a href="#" class="navbar-item block a-no-deco text-grey font-18 helvetica">Objects</a>
         </nav>
 
-        <button onclick="testPager()" class="menu-button bg-white helvetica font-18 text-grey">
+        <button onclick="menuOpener(event)" class="menu-button bg-white helvetica font-18 text-grey">
             <i class="fas fa-grip-lines"></i>
             <span class="menu-button-words">Menu</span>
         </button>
@@ -42,7 +42,7 @@
         </nav>
     </header>
     <main id="main" class="main flex flex-column position-relative">
-        <div id="page-1" class="page flex w-100 h-100 position-relative">
+        <div id="page-1" class="page flex w-100 position-relative">
             <div class="cover-container w-100 block"></div>
             <div class="collection-container flex flex-column">
                 <a href="#" class="cover-secondary a-no-deco block w-100">
@@ -53,12 +53,61 @@
                 </div>
             </div>
         </div>
-        <div id="page-2"class="page w-100 h-100 block" style="background-color:red;"></div>
-        <div id="page-3"class="page w-100 h-100 block" style="background-color:white;"></div>
-        <div id="page-4"class="page w-100 h-100 block" style="background-color:green;"></div>
-        <div id="page-5"class="page w-100 h-100 block" style="background-color:red;"></div>
+        <div id="page-2"class="page w-100 block bg-clear position-relative"> 
+        </div>
+        <div id="page-3"class="page w-100 block bg-light"></div>
+        <div id="page-4"class="page w-100 block bg-grey"></div>
+        <div id="page-5"class="page w-100 block bg-dark"></div>
     </main>
-    <footer class="footer flex flex-column">
+    <div id="emergent-menu-container" class="emergent-menu-container flex w-100 h-100 position-fixed">
+        <nav class="emergent-menu bg-clear">
+            <ul class="shop-menu-section">
+                <li class="menu-element">
+                    <a href="#" class="a-no-deco menu-link text-dark font-14 helvetica embold">Typewriters</a>
+                </li>
+                <li class="menu-element">
+                    <a href="#" class="a-no-deco menu-link text-dark font-14 helvetica embold">Typewriters</a>
+                </li>
+                <li class="menu-element">
+                    <a href="#" class="a-no-deco menu-link text-dark font-14 helvetica embold">Typewriters</a>
+                </li>
+            </ul>
+            <ul class="company-menu-section">
+                <li class="menu-element">
+                    <a href="#" class="a-no-deco menu-link text-dark font-14 helvetica embold">Story</a>
+                </li>
+                <li class="menu-element">
+                    <a href="#" class="a-no-deco menu-link text-dark font-14 helvetica embold">Story</a>
+                </li>
+                <li class="menu-element">
+                    <a href="#" class="a-no-deco menu-link text-dark font-14 helvetica embold">Story</a>
+                </li>
+            </ul>
+            <ul class="support-menu-section">
+                <li class="menu-element">
+                    <a href="#" class="a-no-deco menu-link text-dark font-14 helvetica embold">Help</a>
+                </li>
+                <li class="menu-element">
+                    <a href="#" class="a-no-deco menu-link text-dark font-14 helvetica embold">Help</a>
+                </li>
+                <li class="menu-element">
+                    <a href="#" class="a-no-deco menu-link text-dark font-14 helvetica embold">Help</a>
+                </li>
+            </ul>
+            <ul class="stores-menu-section">
+                <li class="menu-element">
+                    <a href="#" class="a-no-deco menu-link text-dark font-14 helvetica embold">Mexico</a>
+                </li>
+                <li class="menu-element">
+                    <a href="#" class="a-no-deco menu-link text-dark font-14 helvetica embold">Mexico</a>
+                </li>
+                <li class="menu-element">
+                    <a href="#" class="a-no-deco menu-link text-dark font-14 helvetica embold">Mexico</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <footer class="footer flex flex-column bg-white">
         <div class="user-cart-container">
             <div class="cart-container flex">
                 <a href="#" class="a-no-deco text-dark cart-text inline-block helvetica embold font-14">Cart</a>
@@ -78,27 +127,27 @@
         <div class="page-indicator">
             <div id="fret-1-d" class="page-fret-box flex">
                 <span class="inline-block helvetica embold font-14">01 / 05</span>
-               <a id="fret-1" onclick="pageChanger(0)" href="#" class="page-fret font-24 condensed embold a-no-deco">
+               <a id="fret-1" onclick="fretChanger(0)" href="#" class="page-fret font-24 condensed embold a-no-deco">
              </a>
             </div>
             <div id="fret-2-d" class="page-fret-box flex">
                 <span class="inline-block helvetica embold font-14">02 / 05</span>
-                <a id="fret-2" onclick="pageChanger(1)" href="#" class="page-fret font-24 condensed embold a-no-deco">
+                <a id="fret-2" onclick="fretChanger(1)" href="#" class="page-fret font-24 condensed embold a-no-deco">
                 </a>
             </div>
             <div id="fret-3-d" class="page-fret-box flex">
                 <span class="inline-block helvetica embold font-14">03 / 05</span>
-                <a id="fret-3" onclick="pageChanger(2)" href="#" class="page-fret font-24 condensed embold a-no-deco">
+                <a id="fret-3" onclick="fretChanger(2)" href="#" class="page-fret font-24 condensed embold a-no-deco">
                 </a>
             </div>
             <div id="fret-4-d" class="page-fret-box flex">
                 <span class="inline-block helvetica embold font-14">04 / 05</span>
-                <a id="fret-4" onclick="pageChanger(3)" href="#" class="page-fret font-24 condensed embold a-no-deco">
+                <a id="fret-4" onclick="fretChanger(3)" href="#" class="page-fret font-24 condensed embold a-no-deco">
                 </a>
             </div>
             <div id="fret-5-d" class="page-fret-box flex">
                 <span class="inline-block helvetica embold font-14">05 / 05</span>
-                <a id="fret-5" onclick="pageChanger(4)" href="#" class="page-fret font-24 condensed embold a-no-deco">
+                <a id="fret-5" onclick="fretChanger(4)" href="#" class="page-fret font-24 condensed embold a-no-deco">
                 </a>
             </div>
         </div>
