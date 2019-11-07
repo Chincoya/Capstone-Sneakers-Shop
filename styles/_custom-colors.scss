@@ -1,0 +1,46 @@
+:root {
+    --white: #FFFFFF;
+    --dark: #313131;
+    --clear: #f5f5f5;
+    --light: #b9b9b9;
+}
+
+.bg-white {
+  background-color: var(--white);
+}
+
+.bg-dark {
+  background-color: var(--dark);
+}
+
+.bg-clear {
+  background-color: var(--clear);
+}
+
+.bg-light {
+  background-color: var(--light);
+}
+
+.bg-grey {
+  background-color: grey;
+}
+
+.text-white {
+  color: var(--white);
+}
+
+.text-dark {
+  color: var(--dark);
+}
+
+.text-clear {
+  color: var(--clear);
+}
+
+.text-light {
+  color: var(--light);
+}
+
+.text-grey {
+  color: grey;
+}

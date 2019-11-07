@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  overflow: hidden;
+}
+
+.header {
+  z-index: 1040;
+}
+
+.main {
+  z-index: 1020;
+  transition-duration: 0.2s;
+}
+
+.page {
+  z-index: 1030;
+}
+
+.cover-container {
+  background-image: url("../img/main-cover.png");
+  background-position: center;
+  background-size: cover;
+}

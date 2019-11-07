@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url(../fonts/HelveticaNeue.ttf);    
+}
+
+@font-face {
+    font-family: 'Helvetica Condensed Bold';
+    src: url(../fonts/helveticaneue/HelveticaNeue\BlackCond.ttf);
+}
+
+.helvetica {
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.condensed {
+    font-family: 'Helvetica Condensed Bold', Helvetica, sans-serif;
+}
+
+.embold {
+    font-weight: bold;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.a-no-deco {
+    text-decoration: none;
+}
+
+.a-under-deco {
+    text-decoration: none;
+}
+
+.a-under-deco:hover {
+    text-decoration: underline;
+}
+
+.a-font-deco:hover {
+    color: black;
+}
+
+.font-12 {
+    font-size: 12px;
+}
+
+.font-14 {
+    font-size: 14px;
+}
+
+.font-18 {
+    font-size: 18px;
+}
+
+.font-24 {
+    font-size: 24px;
+}
+
+.font-40 {
+    font-size: 40px;
+}

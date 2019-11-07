@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="shortcut icon" href="img/favicon_32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" media="screen and (min-width: 1024px)" href="styles/layout-desktop.css">
+    <link rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 1023px)" href="styles/layout-tablet.css">
+    <link rel="stylesheet" media="screen and (max-width: 767px)" href="styles/layout-phone.css">
+    <link rel="preload" href="scripts/scripts.js" as="script">
+    <title>Daniel Chincoya - Classic writing tools</title>
+</head>
+<body onbeforeunload="savePage()" onload="retPage()">
+    <header class="header bg-white flex">
+        <div class="brand-head">
+            <a href="index.html" class="a-no-deco text-dark font-18 condensed embold inline-block">
+                  Daniel &#183 Chincoya
+            </a>
+        </div>
+
+        <nav class="navbar flex flex-column">
+            <a href="#" class="navbar-item block a-no-deco text-grey font-18 helvetica">Men</a>
+            <a href="#" class="navbar-item block a-no-deco text-grey font-18 helvetica">Women</a>
+            <a href="#" class="navbar-item block a-no-deco text-grey font-18 helvetica">Objects</a>
+        </nav>
+
+        <button onclick="testPager()" class="menu-button bg-white helvetica font-18 text-grey">
+            <i class="fas fa-grip-lines"></i>
+            <span class="menu-button-words">Menu</span>
+        </button>
+
+        <nav class="social-navbar flex flex-column">
+            <a href="#" class="social-navbar-item block a-no-deco text-grey font-14 helvetica">Instagram</a>
+            <a href="#" class="social-navbar-item block a-no-deco text-grey font-14 helvetica">Facebook</a>
+            <a href="#" class="social-navbar-item block a-no-deco text-grey font-14 helvetica">Twitter</a>
+            <a href="#" class="social-navbar-item block a-no-deco text-grey font-14 helvetica">Youtube</a>
+        </nav>
+    </header>
+    <main id="main" class="main flex flex-column position-relative">
+        <div id="page-1" class="page flex w-100 h-100 position-relative">
+            <div class="cover-container w-100 block"></div>
+            <div class="collection-container flex flex-column">
+                <a href="#" class="cover-secondary a-no-deco block w-100">
+                </a>
+                <div class="collection-details flex flex-column bg-white">
+                    <a href="#" class="a-no-deco condensed embold font-24 text-dark block uppercase">Chincoya - Less is More Collection</a>
+                    <a href="#" class="a-no-deco helvetica embold  text-dark font-18 uppercase">Shop Now</a>
+                </div>
+            </div>
+        </div>
+        <div id="page-2"class="page w-100 h-100 block" style="background-color:red;"></div>
+        <div id="page-3"class="page w-100 h-100 block" style="background-color:white;"></div>
+        <div id="page-4"class="page w-100 h-100 block" style="background-color:green;"></div>
+        <div id="page-5"class="page w-100 h-100 block" style="background-color:red;"></div>
+    </main>
+    <footer class="footer flex flex-column">
+        <div class="user-cart-container">
+            <div class="cart-container flex">
+                <a href="#" class="a-no-deco text-dark cart-text inline-block helvetica embold font-14">Cart</a>
+                <a href="#" class="flex a-no-deco helvetica cart-icon inline-block bg-dark embold text-white font-14">0</a>
+            </div>
+            <div class="cart-container flex">
+                <a href="#" class="flex a-no-deco cart-icon text-dark">
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
+            <div class="cart-container flex">
+                <a href="#" class="flex a-no-deco cart-icon text-dark">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>   
+        </div>
+        <div class="page-indicator">
+            <div id="fret-1-d" class="page-fret-box flex">
+                <span class="inline-block helvetica embold font-14">01 / 05</span>
+               <a id="fret-1" onclick="pageChanger(0)" href="#" class="page-fret font-24 condensed embold a-no-deco">
+             </a>
+            </div>
+            <div id="fret-2-d" class="page-fret-box flex">
+                <span class="inline-block helvetica embold font-14">02 / 05</span>
+                <a id="fret-2" onclick="pageChanger(1)" href="#" class="page-fret font-24 condensed embold a-no-deco">
+                </a>
+            </div>
+            <div id="fret-3-d" class="page-fret-box flex">
+                <span class="inline-block helvetica embold font-14">03 / 05</span>
+                <a id="fret-3" onclick="pageChanger(2)" href="#" class="page-fret font-24 condensed embold a-no-deco">
+                </a>
+            </div>
+            <div id="fret-4-d" class="page-fret-box flex">
+                <span class="inline-block helvetica embold font-14">04 / 05</span>
+                <a id="fret-4" onclick="pageChanger(3)" href="#" class="page-fret font-24 condensed embold a-no-deco">
+                </a>
+            </div>
+            <div id="fret-5-d" class="page-fret-box flex">
+                <span class="inline-block helvetica embold font-14">05 / 05</span>
+                <a id="fret-5" onclick="pageChanger(4)" href="#" class="page-fret font-24 condensed embold a-no-deco">
+                </a>
+            </div>
+        </div>
+        <div class="scroll-text-box flex">
+            <p class="scroll-text helvetica font-14">Scroll Down</p>
+        </div>
+    </footer>
+    <script src="scripts/scripts.js"></script> 
+</body>
+</html>
