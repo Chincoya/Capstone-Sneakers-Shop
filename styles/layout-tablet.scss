@@ -52,3 +52,16 @@ body {
   padding: 40px 40px;
   justify-content: space-between;
 }
+
+.emergent-menu-container {
+  justify-content: center;
+  top: 80px;
+}
+
+.emergent-menu {
+  display: flex;
+  height: calc(100% - 80px);
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}

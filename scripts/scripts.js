@@ -1,3 +1,4 @@
+var globalMouse = false;
 var page = 0;
 var offset;
 var unset = "";
@@ -9,6 +10,17 @@ var tester = true;
 var wheeler = 0;
 var current_pos = 0;
 var menuHide = true;
+
+var tape_pages = {
+  arrivals:0,
+  categories:0,
+  shop:0,
+  banner:0,
+  journal:0
+};
+var tape_offset = 0;
+var arrivals_tape = document.getElementById("arrivals-tape");
+var touched;
 
 
 function pageChanger() {
@@ -57,7 +69,7 @@ function resetOffset() {
 }
 
 function wheelChanger(event) {
-  console.log(event.deltaY);
+  if(globalMouse)return;
   wheeler += event.deltaY;
   main_tape.style.top = (current_pos+ (wheeler > 0 ? -20 : 20) )+"px";
   if(wheeler >= 9) {
@@ -73,7 +85,7 @@ function wheelChanger(event) {
   }
 }
 
-function menuOpener(event) {
+function menuOpener() {
   if(menuHide){
     document.getElementById("emergent-menu-container").style = "visibility:visible; opacity: 1;";
     menuHide = false;
@@ -83,5 +95,45 @@ function menuOpener(event) {
   }
 }
 
+function tapeLoader(tapeName) {
+  let tape = document.getElementsByClassName(tapeName+"-page");
+  console.log(tapeName);
+  for(let i=0; i< tape.length; i++) {
+    tape[i].style.background = "#f5f5f5 url('./img/"+tapeName+"/"+(i+1)+".png') no-repeat 50% / 50%";
+  }
+}
+
+function tapeReacter(event) {
+  touched = event.target.parentNode;
+  touched.addEventListener("mousemove", tapeSlider);
+  touched.addEventListener("mouseleave", function(){
+    tape_offset = 0;
+    touched.removeEventListener("mousemove", tapeSlider);
+  });
+  touched.addEventListener("mouseup", function(){
+    touched.removeEventListener("mousemove", tapeSlider);
+    tape_offset = 0;
+  });
+}
+
+
+function tapeSlider(event){
+  if(tape_offset > 50 || tape_offset < -50){
+    touched.removeEventListener("mousemove", tapeSlider);
+    touched.style.transform = unset;
+  }else{
+    tape_offset+= event.movementX;
+    console.log(tape_offset);
+    touched.style.transform = "translateX("+tape_offset+"px)";
+  }
+}
+document.body.onmousedown = function() {
+  globalMouse = true;
+}
+document.body.onmouseup = function () {
+  globalMouse = false;
+}
+tapeLoader('arrivals');
 window.addEventListener("resize", resizeChanger);
 main_tape.addEventListener("wheel", wheelChanger);
+arrivals_tape.addEventListener("mousedown", tapeReacter);

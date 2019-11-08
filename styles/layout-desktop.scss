@@ -124,7 +124,7 @@
 
 .emergent-menu-container {
   flex-direction: column;
-  justify-content: center;  
+  justify-content: center;
 }
 
 .emergent-menu {
@@ -134,14 +134,4 @@
   border-top: 2px solid white;
   border-bottom: 2px solid white;
   justify-content: center;
-}
-
-[class$="-menu-section"] {
-  display: flex;
-  flex-direction: column;
-  padding: 0 20px;
-}
-
-.menu-element {
-  padding: 10px 0;
 }
