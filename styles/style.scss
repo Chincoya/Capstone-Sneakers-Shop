@@ -59,7 +59,8 @@ body {
 }
 
 [class*="-tape"] {
-  transition: left 0.4s, transform 0.1s;
+  transition: transform 0.2s, left 0.1s;
+  transform: translateX(0px);
 }
 
 .arrivals-tape {
@@ -71,16 +72,23 @@ body {
 .arrivals-page {
   height: inherit;
   width: 20%;
-  border: 1px solid black;
 }
 
-.arrivals-scroll-bar {
+[class*="-scroll-bar"] {
   width: 100%;
   bottom: 15%;
   justify-content: center;
 }
 
-.arrivals-scroll-position {
+[class*="-scroll-position"] {
   border-bottom: 2px solid #b9b9b9;
   width: calc(80% / 5);
+}
+
+[class*="-scroll-marker"] {
+  width: calc(80% / 5);
+  bottom: 0;
+  left: 10%;
+  border-bottom: 4px solid grey;
+  transition: transform 0.2s;
 }

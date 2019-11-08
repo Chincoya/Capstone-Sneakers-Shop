@@ -12,15 +12,17 @@ var current_pos = 0;
 var menuHide = true;
 
 var tape_pages = {
-  arrivals:0,
+  arrivalsTape:0,
   categories:0,
   shop:0,
   banner:0,
   journal:0
 };
 var tape_offset = 0;
-var arrivals_tape = document.getElementById("arrivals-tape");
+var arrivalsTape = document.getElementById("arrivalsTape");
 var touched;
+
+var aux_slider;
 
 
 function pageChanger() {
@@ -37,8 +39,13 @@ function pageChanger() {
 
 function resizeChanger() {
   offset = cover_page.offsetHeight;
-  console.log(offset*page);
+  arrivalsTape.style.transform = "translateX("+(-(tape_pages["arrivalsTape"]*arrivalsTape.parentNode.offsetWidth))+"px)";
   main_tape.style.top = (-(offset*page))+"px";
+  if(window.innerWidth <= 1025 && window.innerWidth > 1023 ){
+    setTimeout(function(){
+      main_tape.style.top = (-(window.innerHeight*page))+"px";
+    }, 40);
+  }
 }
 
 function testPager() {
@@ -105,35 +112,53 @@ function tapeLoader(tapeName) {
 
 function tapeReacter(event) {
   touched = event.target.parentNode;
+  let index = touched.id;
   touched.addEventListener("mousemove", tapeSlider);
   touched.addEventListener("mouseleave", function(){
     tape_offset = 0;
+    aux_slider = 0;
     touched.removeEventListener("mousemove", tapeSlider);
+    touched.style.left = unset;
   });
   touched.addEventListener("mouseup", function(){
     touched.removeEventListener("mousemove", tapeSlider);
     tape_offset = 0;
+    aux_slider = 0;
+    touched.style.left = unset;
+
   });
 }
 
 
 function tapeSlider(event){
-  if(tape_offset > 50 || tape_offset < -50){
+  if(tape_offset > 100 || tape_offset < -100){
     touched.removeEventListener("mousemove", tapeSlider);
-    touched.style.transform = unset;
+    let index = touched.id;
+    tapeChanger(tape_offset, index);
+    touched.style.left = unset;
   }else{
     tape_offset+= event.movementX;
-    console.log(tape_offset);
-    touched.style.transform = "translateX("+tape_offset+"px)";
+    touched.style.left = tape_offset+"px";
   }
 }
+
+function tapeChanger(tape_offset, index) {
+  let tape_scroll_bar = touched.nextElementSibling.lastElementChild;
+  tape_pages[index]+= (tape_offset<0 && tape_pages[index]<4? 1 : 0);
+  tape_pages[index]-= (tape_offset>0 && tape_pages[index]>0? 1 : 0);
+  tape_scroll_bar.style.transform = "translateX("+(tape_pages[index]*100)+"%)";
+  touched.style.transform = "translateX("+(-(touched.parentNode.offsetWidth*tape_pages[index]))+"px)";
+}
+
+
 document.body.onmousedown = function() {
   globalMouse = true;
 }
+
 document.body.onmouseup = function () {
   globalMouse = false;
 }
 tapeLoader('arrivals');
 window.addEventListener("resize", resizeChanger);
 main_tape.addEventListener("wheel", wheelChanger);
-arrivals_tape.addEventListener("mousedown", tapeReacter);
+arrivalsTape.addEventListener("mousedown", tapeReacter);
