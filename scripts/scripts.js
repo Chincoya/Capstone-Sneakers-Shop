@@ -23,6 +23,8 @@ var arrivalsTape = document.getElementById("arrivalsTape");
 var touched;
 
 var aux_slider;
+var touchStartX;
+var touchStartY;
 
 
 function pageChanger() {
@@ -75,6 +77,25 @@ function resetOffset() {
   wheeler = 0;
 }
 
+function resetTransformMain() {
+  main_tape.style.transform = unset;
+}
+
+function touchChangerAux(event) {
+  let deltaY = touchStartY - event.touches[0].clientY;
+  if(deltaY > 80){
+    page = page + (page < 4 ? 1 : 0);
+    main_tape.removeEventListener("touchmove", touchChangerAux);
+    pageChanger();
+  }else if(deltaY < -80) {
+    page= page - (page > 0 ? 1 : 0);
+    main_tape.removeEventListener("touchmove", touchChangerAux);
+    pageChanger();
+  }else {
+    main_tape.style.transform = "translateY("+(-deltaY)+"px)";
+  }
+}
+
 function wheelChanger(event) {
   if(globalMouse)return;
   wheeler += event.deltaY;
@@ -90,6 +111,21 @@ function wheelChanger(event) {
   }else {
     setTimeout(resetOffset, 400);
   }
+}
+
+function touchChanger(event) {
+  touchStartY = event.touches[0].clientY;
+  main_tape.addEventListener("touchmove", touchChangerAux);
+  main_tape.addEventListener("touchend", function(e){
+    resetTransformMain();
+    main_tape.removeEventListener("touchmove", touchChangerAux);
+    e.preventDefault();
+  });
+  main_tape.addEventListener("touchcancel", function(e){
+    resetTransformMain();
+    main_tape.removeEventListener("touchmove", touchChangerAux)
+  });
+  event.preventDefault();
 }
 
 function menuOpener() {
@@ -111,22 +147,52 @@ function tapeLoader(tapeName) {
 }
 
 function tapeReacter(event) {
-  touched = event.target.parentNode;
-  let index = touched.id;
-  touched.addEventListener("mousemove", tapeSlider);
-  touched.addEventListener("mouseleave", function(){
-    tape_offset = 0;
-    aux_slider = 0;
-    touched.removeEventListener("mousemove", tapeSlider);
-    touched.style.left = unset;
-  });
-  touched.addEventListener("mouseup", function(){
-    touched.removeEventListener("mousemove", tapeSlider);
-    tape_offset = 0;
-    aux_slider = 0;
-    touched.style.left = unset;
+  if(event.type == "mousedown"){
+    touched = event.target.parentNode;
+    let index = touched.id;
+    touched.addEventListener("mousemove", tapeSlider);
+    touched.addEventListener("mouseleave", function(){
+      tape_offset = 0;
+      aux_slider = 0;
+      touched.removeEventListener("mousemove", tapeSlider);
+      touched.style.left = unset;
+    });
+    touched.addEventListener("mouseup", function(){
+      touched.removeEventListener("mousemove", tapeSlider);
+      tape_offset = 0;
+      aux_slider = 0;
+      touched.style.left = unset;
 
-  });
+    });
+  }else {
+    touched = event.targetTouches[0].target.parentNode;
+    let index = touched.id;
+    touchStartX = event.touches[0].clientX;
+    touched.addEventListener("touchmove", tapeTouchSlider);
+    touched.addEventListener("touchend", function(){
+      touched.style.left = unset;
+      touched.removeEventListener("touchmove", tapeTouchSlider);
+      event.preventDefault();
+    });
+    touched.addEventListener("tocuhcancel", function(){
+      touched.style.left = unset;
+      touched.removeEventListener("touchmove", tapeTouchSlider);
+      event.preventDefault();
+    });
+    event.preventDefault();
+  }
+  
+}
+
+function tapeTouchSlider(event){
+  if((event.touches[0].clientX - touchStartX) > 100 || (event.touches[0].clientX - touchStartX) < -100){
+    touched.removeEventListener("touchmove", tapeTouchSlider);
+    let index = touched.id;
+    tapeChanger((event.touches[0].clientX - touchStartX), index);
+    touched.style.left = unset;
+  }else{
+    touched.style.left = (event.touches[0].clientX - touchStartX)+"px";
+  }
 }
 
 
@@ -150,7 +216,6 @@ function tapeChanger(tape_offset, index) {
   touched.style.transform = "translateX("+(-(touched.parentNode.offsetWidth*tape_pages[index]))+"px)";
 }
 
-
 document.body.onmousedown = function() {
   globalMouse = true;
 }
@@ -158,7 +223,10 @@ document.body.onmousedown = function() {
 document.body.onmouseup = function () {
   globalMouse = false;
 }
+
 tapeLoader('arrivals');
 window.addEventListener("resize", resizeChanger);
 main_tape.addEventListener("wheel", wheelChanger);
+main_tape.addEventListener("touchstart", touchChanger);
 arrivalsTape.addEventListener("mousedown", tapeReacter);
+arrivalsTape.addEventListener("touchstart" , tapeReacter);
