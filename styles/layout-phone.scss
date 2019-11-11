@@ -44,7 +44,7 @@ body {
   height: 25%;
 }
 
-@media screen and (max-height: 600px){
+@media screen and (max-height: 600px) {
   .cover-container {
     height: 30%;
   }
@@ -60,7 +60,7 @@ body {
   justify-content: space-between;
 }
 
-[class^="page"]{
+[class^="page"] {
   h4 {
     left: 0;
     width: 100%;
@@ -84,15 +84,10 @@ body {
 
 [class$="-menu-section"] {
   width: 100%;
-  flex-direction: row;
 }
 
 .menu-element {
   align-self: center;
-}
-
-.category-title {
-  text-align: center;
 }
 
 .category-prod-card {

@@ -123,13 +123,13 @@ function touchChanger(event) {
   main_tape.addEventListener("touchend", function(e){
     resetTransformMain();
     main_tape.removeEventListener("touchmove", touchChangerAux);
-    e.preventDefault();
+    
   });
   main_tape.addEventListener("touchcancel", function(e){
     resetTransformMain();
     main_tape.removeEventListener("touchmove", touchChangerAux)
   });
-  event.preventDefault();
+  
 }
 
 function menuOpener() {
@@ -168,35 +168,29 @@ function tapeReacter(event) {
     touched = event.target.parentNode;
     let index = touched.id;
     touched.addEventListener("mousemove", tapeSlider);
-    touched.addEventListener("mouseleave", function(){
-      tape_offset = 0;
-      touched.removeEventListener("mousemove", tapeSlider);
-      touched.style.left = unset;
-    });
-    touched.addEventListener("mouseup", function(e){
-      touched.removeEventListener("mousemove", tapeSlider);
-      tape_offset = 0;
-      touched.style.left = unset;
-
-    });
+    touched.addEventListener("mouseleave", tapeEventRemover);
+    touched.addEventListener("mouseup", tapeEventRemover);
   }else {
     touched = event.targetTouches[0].target.parentNode;
     let index = touched.id;
     touchStartX = event.touches[0].clientX;
     touched.addEventListener("touchmove", tapeTouchSlider);
-    touched.addEventListener("touchend", function(){
-      touched.style.left = unset;
-      touched.removeEventListener("touchmove", tapeTouchSlider);
-      event.preventDefault();
-    });
-    touched.addEventListener("touchcancel", function(){
-      touched.style.left = unset;
-      touched.removeEventListener("touchmove", tapeTouchSlider);
-      event.preventDefault();
-    });
+    touched.addEventListener("touchend", tapeEventRemover);
+    touched.addEventListener("touchcancel", tapeEventRemover);
     event.preventDefault();
   }
   
+}
+
+function tapeEventRemover(event){
+  tape_offset = 0;
+  touched.style.left = unset
+  touched.removeEventListener("touchmove", tapeTouchSlider);
+  touched.removeEventListener("mousemove", tapeSlider);
+  touched.removeEventListener("touchend", tapeEventRemover);
+  touched.removeEventListener("touchcancel",tapeEventRemover);
+  touched.removeEventListener("mouseup", tapeEventRemover);
+  touched.removeEventListener("mouseleave", tapeEventRemover)
 }
 
 function tapeTouchSlider(event){
@@ -227,7 +221,6 @@ function tapeSlider(event){
 
 function tapeChanger(tape_offset, index) {
   let tape_scroll_bar = touched.nextElementSibling.lastElementChild;
-  console.log(touched.children.length);
   tape_pages[index]+= (tape_offset<0 && tape_pages[index] < (touched.children.length - 1) ? 1 : 0);
   tape_pages[index]-= (tape_offset>0 && tape_pages[index]>0? 1 : 0);
   tape_scroll_bar.style.transform = "translateX("+(tape_pages[index]*100)+"%)";
@@ -267,7 +260,7 @@ function catPageRenderer(categ){
   let newPage = document.createElement("DIV")
   newPage.setAttribute("class", "category-page position-fixed");
   newPage.id = categ+"-emergent";
-  let title = createElWithClass('SPAN', "helvetica w-100 embold font-18 inline-block uppercase category-title");
+  let title = createElWithClass('SPAN', "helvetica w-100 embold font-18 uppercase category-title");
   title.innerText = categ;
   let closing = createElWithClass('I', "far fa-times-circle ");
   closing.addEventListener("click", catPageHid);
@@ -287,6 +280,17 @@ function catPageRenderer(categ){
   }
   document.body.appendChild(newPage);
 }
+
+function prodPageRenderer(prod){
+  let page = document.createElWithClass('DIV', 'product-page position-fixed');
+  let title = createElWithClass('SPAN', "helvetica w-100 embold font-24 uppercase bg-clear product-title");
+  let closing = createElWithClass('I', "far fa-times-circle ");
+  page.id = prod+"-product-page";
+  title.innerText = prod.prodName;
+  title.appendChild(closing);
+  page.appendChild(title);
+}
+
 
 function catPageView(event) {
   if(aux_slider==0){

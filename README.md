@@ -1,6 +1,6 @@
 # Capstone project: Sneakers Shop 
 
-Within this repository you will find a HTML/CSS3 implementation of a sneakers shop, following the design guidelines proposed by [Ariel Arigato](https://www.behance.net/dimaoxygen) in [this](https://www.behance.net/gallery/80392909/AXEL-ARIGATO-Website) website. 
+Within this repository you will find a HTML/CSS3 implementation of a sneakers shop, following the design guidelines proposed by [Dima Oxygen](https://www.behance.net/dimaoxygen) for Axel Arigato as presented in [this](https://www.behance.net/gallery/80392909/AXEL-ARIGATO-Website) website. 
 
 ## Getting started
 

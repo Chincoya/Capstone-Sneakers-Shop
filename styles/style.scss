@@ -61,7 +61,7 @@ body {
 
 [class*="-tape"] {
   transition: transform 0.2s, left 0.1s;
-  transform: translateX(0px);
+  transform: translateX(0);
   height: inherit;
   left: 0;
 }
@@ -77,8 +77,8 @@ body {
   align-self: flex-end;
 }
 
-[class^="page"]{
-  h4{
+[class^="page"] {
+  h4 {
     z-index: 1040;
     top: 10%;
     left: 20px;
@@ -112,6 +112,7 @@ body {
     opacity: 0;
     transition: visibility 0.1s, opacity 0.2s;
   }
+
   div {
     width: 100%;
     height: 100%;
@@ -129,10 +130,11 @@ body {
     border: none;
     transition: box-shadow 0.1s;
     z-index: 1030;
+
     &:hover {
-      -webkit-box-shadow: -2px -2px 9px 0px rgba(0,0,0,0.75);
-      -moz-box-shadow: -2px -2px 9px 0px rgba(0,0,0,0.75);
-      box-shadow: -2px -2px 9px 0px rgba(0,0,0,0.75);
+      -webkit-box-shadow: -2px -2px 9px 0 rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: -2px -2px 9px 0 rgba(0, 0, 0, 0.75);
+      box-shadow: -2px -2px 9px 0 rgba(0, 0, 0, 0.75);
     }
   }
 }
@@ -154,6 +156,8 @@ body {
 
   .category-title {
     height: 15%;
+    display: flex;
+    justify-content: space-between;
   }
 }
 
@@ -173,7 +177,26 @@ body {
     justify-content: space-between;
 
     &:last-child {
-     align-self: flex-end; 
+      align-self: flex-end;
     }
-  } 
+  }
+}
+
+.product-page {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 3%;
+  transition-duration: 0.2s;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1070;
+  top: 0;
+  left: 0;
+
+  .product-title {
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+  }
 }
