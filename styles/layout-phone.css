@@ -27,15 +27,28 @@ body {
   display: none;
 }
 .cover-container {
-  height: calc(75% - 80px);
+  height: 75%;
 }
 .collection-container {
   height: 25%;
+}
+@media screen and (max-height: 600px) {
+  .cover-container {
+    height: 30%;
+  }
+  .collection-container {
+    height: 70%;
+  }
 }
 .collection-details {
   height: 100%;
   padding: 40px;
   justify-content: space-between;
+}
+[class^="page"] h4 {
+  left: 0;
+  width: 100%;
+  text-align: center;
 }
 .emergent-menu-container {
   justify-content: center;
@@ -51,6 +64,7 @@ body {
 }
 [class$="-menu-section"] {
   width: 100%;
+  flex-direction: row;
 }
 .menu-element {
   align-self: center;

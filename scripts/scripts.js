@@ -22,6 +22,8 @@ var aux_slider;
 var touchStartX;
 var touchStartY;
 
+var bannerPos = 2;
+
 function pageChanger() {
   offset = cover_page.offsetHeight;
   for(let fret of frets) {
@@ -230,6 +232,28 @@ function tapeChanger(tape_offset, index) {
   touched.style.transform = "translateX("+(-(touched.parentNode.offsetWidth*tape_pages[index]))+"px)";
 }
 
+function bannerFiller(bool){
+  if(bool){
+    bannerPos = ((bannerPos + 1)%3);
+  }
+  else {
+    bannerPos = ((bannerPos + 2)%3);
+  }
+  for(let banner_backg of document.getElementsByClassName("banner-img")) {
+    banner_backg.style = "";
+  }
+  document.getElementsByClassName("banner-img")[bannerPos].style = "visibility:visible; opacity:1;";
+}
+
+function bannerHandler(event) {
+  if(event.target.nextElementSibling){
+    bannerFiller(false);
+  }
+  else {
+    bannerFiller(true);
+  }
+}
+
 
 document.body.onmousedown = function() {
   globalMouse = true;
@@ -239,6 +263,11 @@ document.body.onmouseup = function () {
   globalMouse = false;
 }
 
+for(let btn of (document.getElementsByClassName("banner-btn"))) {
+  console.log(document.getElementsByClassName("banner-btn"));
+  btn.addEventListener("click", bannerHandler);
+}
+bannerFiller(true);
 tapeLoader('arrivals');
 tapeLoader('categories');
 window.addEventListener("resize", resizeChanger);
