@@ -112,3 +112,7 @@
   border-bottom: 2px solid white;
   justify-content: center;
 }
+.category-prod-card {
+  width: 33.33%;
+  height: 50%;
+}

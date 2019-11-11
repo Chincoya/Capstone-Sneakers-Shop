@@ -112,3 +112,39 @@ body {
   -moz-box-shadow: -2px -2px 9px 0px rgba(0, 0, 0, 0.75);
   box-shadow: -2px -2px 9px 0px rgba(0, 0, 0, 0.75);
 }
+.category-page {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+  width: 100%;
+  height: 100%;
+  padding: 3%;
+  transition-duration: 0.2s;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1060;
+  background-color: #f5f5f5;
+  top: 0;
+  left: 0;
+}
+.category-page .category-title {
+  height: 15%;
+}
+.category-prod-card {
+  display: flex;
+  background-size: 50%;
+  padding: 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid white;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.category-prod-card span {
+  display: flex;
+  justify-content: space-between;
+}
+.category-prod-card span:last-child {
+  align-self: flex-end;
+}

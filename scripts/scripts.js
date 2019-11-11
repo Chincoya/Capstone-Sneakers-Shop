@@ -24,6 +24,8 @@ var touchStartY;
 
 var bannerPos = 2;
 
+var products = {};
+
 function pageChanger() {
   offset = cover_page.offsetHeight;
   for(let fret of frets) {
@@ -161,20 +163,19 @@ function tapeLoader(tapeName) {
 }
 
 function tapeReacter(event) {
+  aux_slider = 0;
   if(event.type == "mousedown"){
     touched = event.target.parentNode;
     let index = touched.id;
     touched.addEventListener("mousemove", tapeSlider);
     touched.addEventListener("mouseleave", function(){
       tape_offset = 0;
-      aux_slider = 0;
       touched.removeEventListener("mousemove", tapeSlider);
       touched.style.left = unset;
     });
-    touched.addEventListener("mouseup", function(){
+    touched.addEventListener("mouseup", function(e){
       touched.removeEventListener("mousemove", tapeSlider);
       tape_offset = 0;
-      aux_slider = 0;
       touched.style.left = unset;
 
     });
@@ -212,6 +213,7 @@ function tapeTouchSlider(event){
 
 
 function tapeSlider(event){
+  aux_slider = 1;
   if(tape_offset > 100 || tape_offset < -100){
     touched.removeEventListener("mousemove", tapeSlider);
     let index = touched.id;
@@ -254,6 +256,54 @@ function bannerHandler(event) {
   }
 }
 
+async function productsLoader(cat){
+  let response = await fetch("https://chincoya.github.io/temp-test/"+cat+".json");
+  let newJson = await response.json();
+  products[cat] = newJson;
+  catPageRenderer(cat);
+}
+
+function catPageRenderer(categ){
+  let newPage = document.createElement("DIV")
+  newPage.setAttribute("class", "category-page position-fixed");
+  newPage.id = categ+"-emergent";
+  let title = createElWithClass('SPAN', "helvetica w-100 embold font-18 inline-block uppercase category-title");
+  title.innerText = categ;
+  let closing = createElWithClass('I', "far fa-times-circle ");
+  closing.addEventListener("click", catPageHid);
+  title.appendChild(closing);
+  newPage.appendChild(title);
+  for(let prod of products[categ]) {
+    let card = document.createElement('DIV');
+    card.style.backgroundImage = "url(https://chincoya.github.io/temp-test/img/"+(categ)+"/"+prod.prodImg+"/1.jpg)";
+    card.className = "category-prod-card";
+    let model = createElWithClass('SPAN', "helvetica embold font-14 inline-block");
+    model.innerText = prod.prodName;
+    let price = createElWithClass('SPAN', "helvetica embold font-14 inline-block");
+    price.innerText = prod.prodPrice;
+    card.appendChild(model);
+    card.appendChild(price);
+    newPage.appendChild(card);
+  }
+  document.body.appendChild(newPage);
+}
+
+function catPageView(event) {
+  if(aux_slider==0){
+    document.getElementById(event.target.id+"-emergent").style = "visibility:visible; opacity: 1;";
+  }
+}
+
+function catPageHid(event) {
+  event.target.parentNode.parentNode.style = unset;
+}
+
+function createElWithClass(type, name) {
+  let newElem = document.createElement(type);
+  newElem.className = name;
+  return newElem;
+}
+
 
 document.body.onmousedown = function() {
   globalMouse = true;
@@ -264,12 +314,19 @@ document.body.onmouseup = function () {
 }
 
 for(let btn of (document.getElementsByClassName("banner-btn"))) {
-  console.log(document.getElementsByClassName("banner-btn"));
   btn.addEventListener("click", bannerHandler);
 }
+
 bannerFiller(true);
 tapeLoader('arrivals');
 tapeLoader('categories');
+productsLoader("typewriters");
+productsLoader("fountains");
+productsLoader("notebooks");
+
 window.addEventListener("resize", resizeChanger);
 main_tape.addEventListener("wheel", wheelChanger);
 main_tape.addEventListener("touchstart", touchChanger);
+for(let category of document.getElementsByClassName("categories-page")){
+  category.addEventListener("click", catPageView);
+}
