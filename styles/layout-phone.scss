@@ -57,8 +57,17 @@ body {
 
 .emergent-menu {
   display: flex;
+  flex-wrap: wrap;
   height: calc(100% - 80px);
   width: 100%;
   justify-content: center;
   align-items: center;
+}
+
+[class$="-menu-section"] {
+  width: 100%;
+}
+
+.menu-element {
+  align-self: center;
 }

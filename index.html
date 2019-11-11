@@ -13,6 +13,7 @@
     <link rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 1023px)" href="styles/layout-tablet.css">
     <link rel="stylesheet" media="screen and (max-width: 767px)" href="styles/layout-phone.css">
     <link rel="preload" href="scripts/scripts.js" as="script">
+    <link rel="module" href="component.html">
     <title>Daniel Chincoya - Classic writing tools</title>
 </head>
 <body onbeforeunload="savePage()" onload="retPage()">
@@ -29,8 +30,8 @@
             <a href="#" class="navbar-item block a-no-deco text-grey font-18 helvetica">Objects</a>
         </nav>
 
-        <button onclick="menuOpener(event)" class="menu-button bg-white helvetica font-18 text-grey">
-            <i class="fas fa-grip-lines"></i>
+        <button id="menu-button" onclick="menuOpener(event)" class="menu-button bg-white helvetica font-18 text-grey">
+            <i id="menu-button-icon" class="fas fa-grip-lines"></i>
             <span class="menu-button-words">Menu</span>
         </button>
 
@@ -55,22 +56,43 @@
         </div>
         <div id="page-2" class="page page-2 w-100 block bg-clear position-relative">
             <div class="arrivals-tape flex position-relative" id="arrivalsTape">
-                <div class="arrivals-page arrivals-page-1"></div>
-                <div class="arrivals-page arrivals-page-2"></div>
-                <div class="arrivals-page arrivals-page-3"></div>
-                <div class="arrivals-page arrivals-page-4"></div>
-                <div class="arrivals-page arrivals-page-5"></div>
+                <div class="arrivals-page arrivals-page-1 flex">
+                    <p class="product-name helvetica embold inline-block font-14 uppercase">Olivetti Studio 45</p>
+                    <p class="product-name helvetica font-14 inline block">150USD</p>
+                </div>
+                <div class="arrivals-page arrivals-page-2 flex">
+                    <p class="product-name helvetica embold inline-block font-14 uppercase">Montblanc classique fountain</p>
+                    <p class="product-name helvetica font-14 inline block">500USD</p>
+                </div>
             </div>
             <div class="arrivals-scroll-bar position-absolute flex" id="arrivals-scrollbar">
-                <div class="arrivals-scroll-position"></div>
-                <div class="arrivals-scroll-position"></div>
-                <div class="arrivals-scroll-position"></div>
                 <div class="arrivals-scroll-position"></div>
                 <div class="arrivals-scroll-position"></div>
                 <div class="arrivals-scroll-marker position-absolute"></div>
             </div>
         </div>
-        <div id="page-3" class="page w-100 block bg-light"></div>
+        <div id="page-3" class="page w-100 block bg-clear position-relative">
+            <div class="categories-tape flex position-relative" id="categoriesTape">
+                <div class="categories-page categories-page-1 flex">
+                    <p class="product-name helvetica embold inline-block font-18 uppercase">Typewriters</p>
+                    <p class="product-name"></p>
+                </div>
+                <div class="categories-page categories-page-2 flex">
+                    <p class="product-name helvetica embold inline-block font-18 uppercase">Fountain Pens</p>
+                    <p class="product-name"></p>
+                </div>
+                <div class="categories-page categories-page-3 flex">
+                    <p class="product-name helvetica embold inline-block font-18 uppercase">Notebooks</p>
+                    <p class="product-name"></p>
+                </div>
+            </div>
+            <div class="categories-scroll-bar position-absolute flex" id="categories-scrollbar">
+                <div class="categories-scroll-position"></div>
+                <div class="categories-scroll-position"></div>
+                <div class="categories-scroll-position"></div>
+                <div class="categories-scroll-marker position-absolute"></div>
+            </div>
+        </div>
         <div id="page-4" class="page w-100 block bg-grey"></div>
         <div id="page-5" class="page w-100 block bg-dark"></div>
     </main>

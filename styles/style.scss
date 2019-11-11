@@ -1,6 +1,7 @@
 body {
   display: flex;
   overflow: hidden;
+  background-color: #f5f5f5;
 }
 
 .header {
@@ -61,17 +62,19 @@ body {
 [class*="-tape"] {
   transition: transform 0.2s, left 0.1s;
   transform: translateX(0px);
-}
-
-.arrivals-tape {
   height: inherit;
-  width: 500%;
   left: 0;
 }
 
-.arrivals-page {
+[class*="s-page"] {
   height: inherit;
-  width: 20%;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0 5%;
+}
+
+.arrivals-page > :last-child {
+  align-self: flex-end;
 }
 
 [class*="-scroll-bar"] {
@@ -82,11 +85,11 @@ body {
 
 [class*="-scroll-position"] {
   border-bottom: 2px solid #b9b9b9;
-  width: calc(80% / 5);
+  width: calc(80% / 2);
 }
 
 [class*="-scroll-marker"] {
-  width: calc(80% / 5);
+  width: calc(80% / 2);
   bottom: 0;
   left: 10%;
   border-bottom: 4px solid grey;
