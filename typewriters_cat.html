@@ -8,8 +8,7 @@
     <link rel="shortcut icon" href="img/favicon_32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="styles/style.css">
-    <script src="./scripts/categories.js"></script>
+    <link rel="stylesheet" href="styles/categories.css">
     <title>Typewriters</title>
 </head>
 
@@ -29,7 +28,7 @@
             <a href="./notebooks_cat.html" class="navbar-item block a-no-deco text-grey font-18 helvetica">Notebooks</a>
         </nav>
 
-        <button id="menu-button" onclick="menuOpener(event)" class="menu-button bg-white helvetica font-18 text-grey">
+        <button id="menu-button" class="menu-button bg-white helvetica font-18 text-grey">
             <i id="menu-button-icon" class="fas fa-grip-lines"></i>
             <span class="menu-button-words">Menu</span>
         </button>
@@ -41,7 +40,41 @@
             <a href="#" class="social-navbar-item block a-no-deco text-grey font-14 helvetica">Youtube</a>
         </nav>
     </header>
-    <main id="typewriters-main" class="main flex flex-column"></main>
+    <main id="main" class="main flex flex-column">
+        <h3 class="category-title font-18 block w-100 text-dark condensed">Typewriters</h3>
+        <div class="flex h-100 bg-clear">
+            <div class="category-page">
+                <article id="oli45" class="category-prod-card">
+                    <h4 class="text-dark font-14 helvetica uppercase">Olivetti 45</h4>
+                    <span class="font-14 text-dark helvetica">150USD</span>
+                </article>
+                <article id="oli35" class="category-prod-card">
+                    <h4 class="text-dark font-14 helvetica uppercase">Olivetti 45</h4>
+                    <span class="font-14 text-dark helvetica">100USD</span>
+                </article>
+                <article id="oli25" class="category-prod-card">
+                    <h4 class="text-dark font-14 helvetica uppercase">Olivetti 45</h4>
+                    <span class="font-14 text-dark helvetica">200USD</span>
+                </article>
+                <article id="oliMan" class="category-prod-card">
+                    <h4 class="text-dark font-14 helvetica uppercase">Olivetti 45</h4>
+                    <span class="font-14 text-dark helvetica">150USD</span>
+                </article>
+                <article id="oliVal" class="category-prod-card">
+                    <h4 class="text-dark font-14 helvetica uppercase">Olivetti 45</h4>
+                    <span class="font-14 text-dark helvetica">130USD</span>
+                </article>
+                <article id="oliFor" class="category-prod-card">
+                    <h4 class="text-dark font-14 helvetica uppercase">Olivetti 45</h4>
+                    <span class="font-14 text-dark helvetica">120USD</span>
+                </article>
+                <article id="oli45" class="category-prod-card">
+                    <h4 class="text-dark font-14 helvetica uppercase">Olivetti 45</h4>
+                    <span class="font-14 text-dark helvetica">150USD</span>
+                </article>
+            </div>
+        </div>
+    </main>
     <div id="emergent-menu-container" class="emergent-menu-container flex w-100 h-100 position-fixed">
         <nav class="emergent-menu bg-clear">
             <ul class="shop-menu-section">
@@ -105,6 +138,7 @@
             </div>
         </div>
     </footer>
+    <script src="./scripts/categories.js"></script>
 </body>
 
 </html>
