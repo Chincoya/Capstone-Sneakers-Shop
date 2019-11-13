@@ -13,15 +13,16 @@
     <link rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 1023px)" href="styles/layout-tablet.css">
     <link rel="stylesheet" media="screen and (max-width: 767px)" href="styles/layout-phone.css">
     <link rel="preload" href="scripts/scripts.js" as="script">
-    <link rel="module" href="component.html">
     <title>Daniel Chincoya - Classic writing tools</title>
 </head>
 <body onbeforeunload="savePage()" onload="retPage()">
     <header class="header bg-white flex">
         <div class="brand-head">
-            <a onclick="fretChanger(0)" href="#" class="a-no-deco text-dark font-18 condensed embold inline-block">
-                  Daniel &#183 Chincoya
-            </a>
+            <h1>
+                <a onclick="fretChanger(0)" href="#" class="a-no-deco text-dark font-18 condensed embold inline-block">
+                    Daniel &#183; Chincoya
+                </a>
+            </h1>
         </div>
 
         <nav class="navbar flex flex-column">
@@ -56,14 +57,14 @@
         </div>
         <div id="page-2" class="page page-2 w-100 block bg-clear position-relative">
             <div class="arrivals-tape flex position-relative" id="arrivalsTape">
-                <div class="arrivals-page arrivals-page-1 flex">
-                    <p class="product-name helvetica embold inline-block font-14 uppercase">Olivetti Studio 45</p>
+                <article class="arrivals-page arrivals-page-1 flex">
+                    <h3 class="product-name helvetica embold inline-block font-14 uppercase">Olivetti Studio 45</h3>
                     <p class="product-name helvetica font-14 inline block">150USD</p>
-                </div>
-                <div class="arrivals-page arrivals-page-2 flex">
-                    <p class="product-name helvetica embold inline-block font-14 uppercase">Montblanc classique fountain</p>
+                </article>
+                <article class="arrivals-page arrivals-page-2 flex">
+                    <h3 class="product-name helvetica embold inline-block font-14 uppercase">Montblanc classique fountain</h3>
                     <p class="product-name helvetica font-14 inline block">500USD</p>
-                </div>
+                </article>
             </div>
             <div class="arrivals-scroll-bar position-absolute flex" id="arrivals-scrollbar">
                 <div class="arrivals-scroll-position"></div>
@@ -74,18 +75,18 @@
         </div>
         <div id="page-3" class="page w-100 block bg-clear position-relative">
             <div class="categories-tape flex position-relative" id="categoriesTape">
-                <div id="typewriters" class="categories-page categories-page-1 flex">
-                    <p class="product-name helvetica embold inline-block font-18 uppercase">Typewriters</p>
+                <article id="typewriters" class="categories-page categories-page-1 flex">
+                    <h3 class="product-name helvetica embold inline-block font-18 uppercase">Typewriters</h3>
                     <p class="product-name"></p>
-                </div>
-                <div id="fountains" class="categories-page categories-page-2 flex">
-                    <p class="product-name helvetica embold inline-block font-18 uppercase">Fountain Pens</p>
+                </article>
+                <article id="fountains" class="categories-page categories-page-2 flex">
+                    <h3 class="product-name helvetica embold inline-block font-18 uppercase">Fountain Pens</h3>
                     <p class="product-name"></p>
-                </div>
-                <div id="notebooks" class="categories-page categories-page-3 flex">
-                    <p class="product-name helvetica embold inline-block font-18 uppercase">Notebooks</p>
+                </article>
+                <article id="notebooks" class="categories-page categories-page-3 flex">
+                    <h3 class="product-name helvetica embold inline-block font-18 uppercase">Notebooks</h3>
                     <p class="product-name"></p>
-                </div>
+                </article>
             </div>
             <div class="categories-scroll-bar position-absolute flex" id="categories-scrollbar">
                 <div class="categories-scroll-position"></div>
