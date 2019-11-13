@@ -18,10 +18,12 @@ img {
   font-family: "Helvetica Neue";
   src: url(../fonts/HelveticaNeue.ttf);
 }
+
 @font-face {
   font-family: "Helvetica Condensed Bold";
   src: url(../fonts/helveticaneue/HelveticaNeue\BlackCond.ttf);
 }
+
 .helvetica {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
@@ -75,7 +77,7 @@ img {
 }
 
 :root {
-  --white: #FFFFFF;
+  --white: #fff;
   --dark: #313131;
   --clear: #f5f5f5;
   --light: #b9b9b9;
@@ -177,5 +179,3 @@ body {
   background-color: white;
   position: relative;
 }
-
-/*# sourceMappingURL=main.css.map */
