@@ -1,0 +1,142 @@
+body {
+  overflow: auto;
+  min-height: 740px;
+  min-width: 415px;
+}
+
+.main {
+  height: calc(100vh - 80px);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.prod-image-box {
+  display: none;
+}
+
+.prod-image {
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 3px solid white;
+}
+
+.prod-main-box {
+  flex-direction: column;
+  height: 100%;
+}
+
+.prod-description {
+  width: 100%;
+  height: 60%;
+  justify-content: space-evenly;
+  order: 2;
+
+  [class*="prod-descr-"] {
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    padding: 0 15px;
+    align-items: center;
+  }
+
+  .prod-descr-sec1 {
+    justify-content: space-between;
+    height: 25%;
+  }
+
+  .prod-descr-sec2 {
+    height: 20%;
+
+    ul {
+      justify-content: space-around;
+    }
+  }
+
+  .descr-link-item:focus {
+    color: grey;
+  }
+
+  .prod-descr-sec3 {
+    align-items: flex-start;
+    justify-content: center;
+    height: 35%;
+
+    h3 {
+      padding-bottom: 10px;
+    }
+  }
+
+  .prod-descr-sec4 {
+    height: 20%;
+
+    a {
+      width: 25%;
+      justify-content: center;
+      height: 100%;
+      align-items: center;
+
+      &:last-child {
+        width: 75%;
+        border-left: 3px solid white;
+      }
+    }
+  }
+}
+
+.prod-cover {
+  background-image: url("https://raw.githubusercontent.com/Chincoya/temp-test/master/fountains/legrand/5.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 40%;
+  order: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    flex-direction: row;
+  }
+
+  .prod-main-box {
+    width: 75%;
+  }
+
+  .prod-image-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .main {
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .prod-main-box {
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .prod-description {
+    width: 35%;
+    height: 100%;
+  }
+
+  .prod-cover {
+    width: 65%;
+    height: 100%;
+    border-left: 3px solid white;
+    order: 3;
+  }
+
+  .prod-image-box {
+    flex-direction: row;
+    height: 25%;
+    width: 100%;
+  }
+}

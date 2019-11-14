@@ -14,6 +14,10 @@ img {
   object-fit: cover;
 }
 
+ul {
+  list-style: none;
+}
+
 @font-face {
   font-family: "Helvetica Neue";
   src: url(../fonts/HelveticaNeue.ttf);
@@ -175,7 +179,387 @@ img {
   position: fixed;
 }
 
+@media screen and (max-width: 767px) {
+  body {
+    flex-direction: column;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  .main {
+    height: calc(500vh - 80px);
+  }
+
+  .page {
+    height: calc(100vh - 80px);
+  }
+
+  .page:first-child {
+    flex-direction: column;
+  }
+
+  .header {
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .navbar,
+  .social-navbar {
+    display: none;
+  }
+
+  .menu-button-words {
+    display: none;
+  }
+
+  .cover-container {
+    height: 75%;
+  }
+
+  .collection-container {
+    height: 25%;
+  }
+}
+
+@media screen and (max-width: 767px) and (max-height: 600px) {
+  .cover-container {
+    height: 30%;
+  }
+
+  .collection-container {
+    height: 70%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .collection-details {
+    height: 100%;
+    padding: 40px;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  [class^=page] h4 {
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .emergent-menu-container {
+    justify-content: center;
+    top: 80px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .emergent-menu {
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(100% - 80px);
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  [class$=-menu-section] {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .menu-element {
+    align-self: center;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .category-prod-card {
+    width: 100%;
+    height: 90%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  body {
+    flex-direction: column;
+  }
+
+  .footer {
+    display: none;
+  }
+
+  .header {
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .navbar,
+  .social-navbar {
+    display: none;
+  }
+
+  .menu-button-words {
+    display: none;
+  }
+
+  .main {
+    height: calc(500vh - 80px);
+  }
+
+  .page {
+    height: calc(100vh - 80px);
+  }
+
+  .cover-container {
+    height: 100%;
+  }
+
+  .cover-secondary {
+    display: none;
+  }
+
+  .collection-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 1010;
+    width: 50%;
+    height: 30vh;
+  }
+
+  .collection-details {
+    height: 100%;
+    padding: 40px 40px;
+    justify-content: space-between;
+  }
+
+  .emergent-menu-container {
+    justify-content: center;
+    top: 80px;
+  }
+
+  .emergent-menu {
+    display: flex;
+    flex-wrap: wrap;
+    height: calc(100% - 80px);
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  [class$=-menu-section] {
+    width: 50%;
+  }
+
+  [class$=-menu-section]:nth-child(2n) {
+    align-items: flex-end;
+  }
+
+  .menu-element {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+
+  .category-prod-card {
+    width: 50%;
+    height: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 20%;
+    height: 100vh;
+    padding: 40px;
+    position: sticky;
+  }
+
+  .main {
+    width: 60%;
+    height: 500vh;
+  }
+
+  .page {
+    height: 100vh;
+  }
+
+  .cover-container {
+    width: 50%;
+    height: 100vh;
+  }
+
+  .collection-container {
+    margin-left: 10px;
+    width: calc(50% - 10px);
+    height: 100vh;
+  }
+
+  .cover-secondary {
+    height: 50%;
+    background-image: url("../img/cover2.jpg");
+    background-position: center;
+    background-size: cover;
+  }
+
+  .collection-details {
+    height: 50%;
+    padding: 50px 40px 50px 50px;
+    justify-content: space-between;
+  }
+
+  .collection-details > a:first-child {
+    font-size: 40px;
+  }
+
+  .navbar-item {
+    padding: 15px 0;
+  }
+
+  .social-navbar-item {
+    padding: 15px 0;
+  }
+
+  .menu-button-words {
+    padding-left: 10px;
+  }
+
+  .menu-button {
+    justify-self: center;
+  }
+
+  .footer {
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 20%;
+    height: 100vh;
+    padding: 40px;
+    position: sticky;
+  }
+
+  .cart-container {
+    padding-top: 20px;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .cart-icon {
+    margin-left: 15px;
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    justify-content: center;
+    align-items: center;
+    vertical-align: center;
+  }
+
+  .cart-text {
+    padding-top: 3px;
+  }
+
+  .cart-container:first-child > .cart-icon {
+    line-height: 14px;
+    padding-top: 3px;
+  }
+
+  .scroll-text-box {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .scroll-text {
+    writing-mode: vertical-rl;
+  }
+
+  .page-fret-box {
+    padding-top: 20px;
+    justify-content: flex-end;
+  }
+
+  .page-fret {
+    margin-left: 15px;
+    align-self: center;
+    width: 15px;
+    height: 5px;
+    background-color: black;
+    transition-duration: 0.2s;
+  }
+
+  .page-fret-box > span {
+    display: none;
+  }
+
+  .emergent-menu-container {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .emergent-menu {
+    display: flex;
+    height: 50%;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    justify-content: center;
+    align-items: center;
+  }
+
+  [class$=menu-section] {
+    min-height: 164px;
+  }
+
+  .category-prod-card {
+    width: 33.33%;
+    height: 50%;
+  }
+}
+
 body {
-  background-color: white;
   position: relative;
+  display: flex;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+
+.header {
+  z-index: 1050;
+}
+
+.main {
+  z-index: 1020;
+  transition-duration: 0.2s;
+}
+
+.footer {
+  z-index: 1050;
+}
+
+.emergent-menu-container {
+  z-index: 1040;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+[class$=-menu-section] {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.menu-element {
+  padding: 10px 0;
 }

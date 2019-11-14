@@ -1,4 +1,3 @@
-
 var globalMouse = false;
 var page = 0;
 var offset;
@@ -177,7 +176,7 @@ function tapeReacter(event) {
     touched.addEventListener("touchmove", tapeTouchSlider);
     touched.addEventListener("touchend", tapeEventRemover);
     touched.addEventListener("touchcancel", tapeEventRemover);
-    event.preventDefault();
+    console.log(event.preventDefault());
   }
   
 }
@@ -249,49 +248,6 @@ function bannerHandler(event) {
   }
 }
 
-async function productsLoader(cat){
-  let response = await fetch("https://chincoya.github.io/temp-test/"+cat+".json");
-  let newJson = await response.json();
-  products[cat] = newJson;
-  catPageRenderer(cat);
-}
-
-function catPageRenderer(categ){
-  let newPage = document.createElement("DIV")
-  newPage.setAttribute("class", "category-page position-fixed");
-  newPage.id = categ+"-emergent";
-  let title = createElWithClass('SPAN', "helvetica w-100 embold font-18 uppercase category-title");
-  title.innerText = categ;
-  let closing = createElWithClass('I', "far fa-times-circle ");
-  closing.addEventListener("click", catPageHid);
-  title.appendChild(closing);
-  newPage.appendChild(title);
-  for(let prod of products[categ]) {
-    let card = document.createElement('DIV');
-    card.style.backgroundImage = "url(https://chincoya.github.io/temp-test/img/"+(categ)+"/"+prod.prodImg+"/1.jpg)";
-    card.className = "category-prod-card";
-    let model = createElWithClass('SPAN', "helvetica embold font-14 inline-block");
-    model.innerText = prod.prodName;
-    let price = createElWithClass('SPAN', "helvetica embold font-14 inline-block");
-    price.innerText = prod.prodPrice;
-    card.appendChild(model);
-    card.appendChild(price);
-    newPage.appendChild(card);
-  }
-  document.body.appendChild(newPage);
-}
-
-function prodPageRenderer(prod){
-  let page = document.createElWithClass('DIV', 'product-page position-fixed');
-  let title = createElWithClass('SPAN', "helvetica w-100 embold font-24 uppercase bg-clear product-title");
-  let closing = createElWithClass('I', "far fa-times-circle ");
-  page.id = prod+"-product-page";
-  title.innerText = prod.prodName;
-  title.appendChild(closing);
-  page.appendChild(title);
-}
-
-
 function catPageView(event) {
   if(aux_slider==0){
     document.getElementById(event.target.id+"-emergent").style = "visibility:visible; opacity: 1;";
@@ -324,13 +280,14 @@ for(let btn of (document.getElementsByClassName("banner-btn"))) {
 bannerFiller(true);
 tapeLoader('arrivals');
 tapeLoader('categories');
-productsLoader("typewriters");
-productsLoader("fountains");
-productsLoader("notebooks");
-
 window.addEventListener("resize", resizeChanger);
 main_tape.addEventListener("wheel", wheelChanger);
 main_tape.addEventListener("touchstart", touchChanger);
 for(let category of document.getElementsByClassName("categories-page")){
-  category.addEventListener("click", catPageView);
+  category.addEventListener("click", (e) => {
+    if(aux_slider){
+    }else{
+      window.open(category.id+"_cat.html", "_self");
+    }
+  });
 }
