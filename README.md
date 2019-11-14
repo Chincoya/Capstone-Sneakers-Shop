@@ -19,6 +19,8 @@ syntax.
 ## Insights
 The main page is rendered as a long strip of content with overflow hidden, and is navigable by using the mouse wheel or a finger in a touchscreen. The sections that comprise several parts are presented in some sort od horizontal slideshow, this one navigable with the mouse as well as with a finger. Most of this behavior was made with javascript modifiyng the transform property of elements.
 
+### [Live version](https://chincoya.github.io/Capstone-Sneakers-Shop/)
+
 ### Author:
 
 Daniel Chincoya | [@chincoya7](https://twitter.com/chincoya7)
