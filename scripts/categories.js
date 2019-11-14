@@ -1,3 +1,4 @@
+
 var menuHide = true;
 var unset = "";
 let cards = document.getElementsByClassName("category-prod-card")
@@ -13,9 +14,16 @@ function menuOpener() {
     document.getElementById("menu-button-icon").className = "fas fa-grip-lines";
   }
 }
-console.log(cards);
-for(let card of cards) {
-  card.style = "background-image: url(https://raw.githubusercontent.com/Chincoya/temp-test/master/"+(document.title.toLowerCase())+"/"+card.id+"/1.jpg);";
+
+function smoother() {
+  document.getElementById("main").style.opacity = "1";
 }
 
+for(let card of cards) {
+  card.style = "background-image: url(https://raw.githubusercontent.com/Chincoya/temp-test/master/"+(document.title.toLowerCase())+"/"+card.id+"/1.jpg);";
+  card.addEventListener("click", function() {
+    window.open("product.html", "_self");
+  });
+}
+smoother();
 document.getElementById("menu-button").addEventListener("click", menuOpener);
