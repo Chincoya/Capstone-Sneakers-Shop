@@ -14,14 +14,20 @@ img {
   object-fit: cover;
 }
 
+ul {
+  list-style: none;
+}
+
 @font-face {
   font-family: "Helvetica Neue";
   src: url(../fonts/HelveticaNeue.ttf);
 }
+
 @font-face {
   font-family: "Helvetica Condensed Bold";
   src: url(../fonts/helveticaneue/HelveticaNeue\BlackCond.ttf);
 }
+
 .helvetica {
   font-family: "Helvetica Neue", Helvetica, sans-serif;
 }
@@ -202,7 +208,7 @@ img {
   }
 
   .navbar,
-.social-navbar {
+  .social-navbar {
     display: none;
   }
 
@@ -218,6 +224,7 @@ img {
     height: 25%;
   }
 }
+
 @media screen and (max-width: 767px) and (max-height: 600px) {
   .cover-container {
     height: 30%;
@@ -227,6 +234,7 @@ img {
     height: 70%;
   }
 }
+
 @media screen and (max-width: 767px) {
   .collection-details {
     height: 100%;
@@ -234,6 +242,7 @@ img {
     justify-content: space-between;
   }
 }
+
 @media screen and (max-width: 767px) {
   [class^=page] h4 {
     left: 0;
@@ -241,12 +250,14 @@ img {
     text-align: center;
   }
 }
+
 @media screen and (max-width: 767px) {
   .emergent-menu-container {
     justify-content: center;
     top: 80px;
   }
 }
+
 @media screen and (max-width: 767px) {
   .emergent-menu {
     display: flex;
@@ -257,22 +268,26 @@ img {
     align-items: center;
   }
 }
+
 @media screen and (max-width: 767px) {
   [class$=-menu-section] {
     width: 100%;
   }
 }
+
 @media screen and (max-width: 767px) {
   .menu-element {
     align-self: center;
   }
 }
+
 @media screen and (max-width: 767px) {
   .category-prod-card {
     width: 100%;
     height: 90%;
   }
 }
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   body {
     flex-direction: column;
@@ -290,7 +305,7 @@ img {
   }
 
   .navbar,
-.social-navbar {
+  .social-navbar {
     display: none;
   }
 
@@ -361,6 +376,7 @@ img {
     height: 50%;
   }
 }
+
 @media screen and (min-width: 1024px) {
   .header {
     flex-direction: column;
@@ -509,6 +525,7 @@ img {
     height: 50%;
   }
 }
+
 body {
   position: relative;
   display: flex;
@@ -546,5 +563,3 @@ body {
 .menu-element {
   padding: 10px 0;
 }
-
-/*# sourceMappingURL=main.css.map */
