@@ -71,7 +71,7 @@ body {
 
 .emergent-menu {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   height: calc(100% - 80px);
   width: 100%;
   justify-content: center;

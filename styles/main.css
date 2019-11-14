@@ -261,7 +261,7 @@ ul {
 @media screen and (max-width: 767px) {
   .emergent-menu {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     height: calc(100% - 80px);
     width: 100%;
     justify-content: center;
@@ -359,11 +359,7 @@ ul {
   }
 
   [class$=-menu-section] {
-    width: 50%;
-  }
-
-  [class$=-menu-section]:nth-child(2n) {
-    align-items: flex-end;
+    min-height: 164px;
   }
 
   .menu-element {
