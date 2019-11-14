@@ -1,0 +1,146 @@
+.header {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 20%;
+  height: 100vh;
+  padding: 40px;
+  position: sticky;
+}
+
+.main {
+  width: 60%;
+  height: 500vh;
+}
+
+.page {
+  height: 100vh;
+}
+
+.cover-container {
+  width: 50%;
+  height: 100vh;
+}
+
+.collection-container {
+  margin-left: 10px;
+  width: calc(50% - 10px);
+  height: 100vh;
+}
+
+.cover-secondary {
+  height: 50%;
+  background-image: url("../img/cover2.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.collection-details {
+  height: 50%;
+  padding: 50px 40px 50px 50px;
+  justify-content: space-between;
+}
+
+.collection-details > a:first-child {
+  font-size: 40px;
+}
+
+.navbar-item {
+  padding: 15px 0;
+}
+
+.social-navbar-item {
+  padding: 15px 0;
+}
+
+.menu-button-words {
+  padding-left: 10px;
+}
+
+.menu-button {
+  justify-self: center;
+}
+
+.footer {
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 20%;
+  height: 100vh;
+  padding: 40px;
+  position: sticky;
+}
+
+.cart-container {
+  padding-top: 20px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cart-icon {
+  margin-left: 15px;
+  border-radius: 50%;
+  height: 24px;
+  width: 24px;
+  justify-content: center;
+  align-items: center;
+  vertical-align: center;
+}
+
+.cart-text {
+  padding-top: 3px;
+}
+
+.cart-container:first-child > .cart-icon {
+  line-height: 14px;
+  padding-top: 3px;
+}
+
+.scroll-text-box {
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.scroll-text {
+  writing-mode: vertical-rl;
+}
+
+.page-fret-box {
+  padding-top: 20px;
+  justify-content: flex-end;
+}
+
+.page-fret {
+  margin-left: 15px;
+  align-self: center;
+  width: 15px;
+  height: 5px;
+  background-color: black;
+  transition-duration: 0.2s;
+}
+
+.page-fret-box > span {
+  display: none;
+}
+
+.emergent-menu-container {
+  flex-direction: column;
+  justify-content: center;
+}
+
+.emergent-menu {
+  display: flex;
+  height: 50%;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  justify-content: center;
+  align-items: center;
+}
+
+[class$="menu-section"] {
+  min-height: 164px;
+}
+
+.category-prod-card {
+  width: 33.33%;
+  height: 50%;
+}

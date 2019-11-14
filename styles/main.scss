@@ -1,0 +1,54 @@
+@import "./custom-reset";
+@import "./custom-type";
+@import "./custom-colors";
+@import "./custom-displays";
+
+@media screen and (max-width: 767px) {
+  @import "./layout-phone";
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  @import "./layout-tablet";
+}
+
+@media screen and (min-width: 1024px) {
+  @import "./layout-desktop";
+}
+
+body {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  background-color: #f5f5f5;
+}
+
+.header {
+  z-index: 1050;
+}
+
+.main {
+  z-index: 1020;
+  transition-duration: 0.2s;
+}
+
+.footer {
+  z-index: 1050;
+}
+
+.emergent-menu-container {
+  z-index: 1040;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+[class$="-menu-section"] {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.menu-element {
+  padding: 10px 0;
+}

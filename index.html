@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="shortcut icon" href="img/favicon_32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="preload" href="scripts/scripts.js" as="script">
+    <title>Daniel Chincoya - Classic writing tools</title>
+</head>
+<body onbeforeunload="savePage()" onload="retPage()">
+    <header class="header bg-white flex">
+        <div class="brand-head">
+            <h1>
+                <a onclick="fretChanger(0)" href="#" class="a-no-deco text-dark font-18 condensed embold inline-block">
+                    Daniel &#183; Chincoya
+                </a>
+            </h1>
+        </div>
+
+        <nav class="navbar flex flex-column">
+            <a href="./typewriters_cat.html" class="navbar-item block a-no-deco text-grey font-18 helvetica">TypeWriters</a>
+            <a href="./fountains_cat.html" class="navbar-item block a-no-deco text-grey font-18 helvetica">Fountain Pens</a>
+            <a href="./notebooks_cat.html" class="navbar-item block a-no-deco text-grey font-18 helvetica">Notebooks</a>
+        </nav>
+
+        <button id="menu-button" onclick="menuOpener(event)" class="menu-button bg-white helvetica font-18 text-grey">
+            <i id="menu-button-icon" class="fas fa-grip-lines"></i>
+            <span class="menu-button-words">Menu</span>
+        </button>
+
+        <nav class="social-navbar flex flex-column">
+            <a href="#" class="social-navbar-item block a-no-deco text-grey font-14 helvetica">Instagram</a>
+            <a href="#" class="social-navbar-item block a-no-deco text-grey font-14 helvetica">Facebook</a>
+            <a href="#" class="social-navbar-item block a-no-deco text-grey font-14 helvetica">Twitter</a>
+            <a href="#" class="social-navbar-item block a-no-deco text-grey font-14 helvetica">Youtube</a>
+        </nav>
+    </header>
+    <main id="main" class="main flex flex-column position-relative">
+        <div id="page-1" class="page flex w-100 position-relative">
+            <div class="cover-container w-100 block"></div>
+            <div class="collection-container flex flex-column">
+                <a href="#" class="cover-secondary a-no-deco block w-100">
+                </a>
+                <div class="collection-details flex flex-column bg-white">
+                    <a href="#" class="a-no-deco condensed embold font-24 text-dark block uppercase">Chincoya - Less is More Collection</a>
+                    <a href="#" class="a-no-deco helvetica embold  text-dark font-18 uppercase">Shop Now</a>
+                </div>
+            </div>
+        </div>
+        <div id="page-2" class="page page-2 w-100 block bg-clear position-relative">
+            <div class="arrivals-tape flex position-relative" id="arrivalsTape">
+                <article class="arrivals-page arrivals-page-1 flex">
+                    <h3 class="product-name helvetica embold inline-block font-14 uppercase">Olivetti Studio 45</h3>
+                    <p class="product-name helvetica font-14 inline block">150USD</p>
+                </article>
+                <article class="arrivals-page arrivals-page-2 flex">
+                    <h3 class="product-name helvetica embold inline-block font-14 uppercase">Montblanc classique fountain</h3>
+                    <p class="product-name helvetica font-14 inline block">500USD</p>
+                </article>
+            </div>
+            <div class="arrivals-scroll-bar position-absolute flex" id="arrivals-scrollbar">
+                <div class="arrivals-scroll-position"></div>
+                <div class="arrivals-scroll-position"></div>
+                <div class="arrivals-scroll-marker position-absolute"></div>
+            </div>
+            <h4 class="condensed embold font-18 text-dark inline-block position-absolute">New Arrivals</h4>
+        </div>
+        <div id="page-3" class="page w-100 block bg-clear position-relative">
+            <div class="categories-tape flex position-relative" id="categoriesTape">
+                <article id="typewriters" class="categories-page categories-page-1 flex">
+                    <h3 class="product-name helvetica embold inline-block font-18 uppercase">Typewriters</h3>
+                    <p class="product-name"></p>
+                </article>
+                <article id="fountains" class="categories-page categories-page-2 flex">
+                    <h3 class="product-name helvetica embold inline-block font-18 uppercase">Fountain Pens</h3>
+                    <p class="product-name"></p>
+                </article>
+                <article id="notebooks" class="categories-page categories-page-3 flex">
+                    <h3 class="product-name helvetica embold inline-block font-18 uppercase">Notebooks</h3>
+                    <p class="product-name"></p>
+                </article>
+            </div>
+            <div class="categories-scroll-bar position-absolute flex" id="categories-scrollbar">
+                <div class="categories-scroll-position"></div>
+                <div class="categories-scroll-position"></div>
+                <div class="categories-scroll-position"></div>
+                <div class="categories-scroll-marker position-absolute"></div>
+            </div>
+            <h4 class="condensed embold font-18 text-dark inline-block position-absolute">Categories</h4>
+        </div>
+        <div id="page-4" class="page page-4 w-100 block bg-clear position-relative">
+            <div>
+                <img src="./img/banner/0.png" alt="Banner" class="banner-img position-absolute h-100 w-100">
+                <img src="./img/banner/1.png" alt="Banner" class="banner-img position-absolute h-100 w-100">
+                <img src="./img/banner/2.png" alt="Banner" class="banner-img position-absolute h-100 w-100">
+                <button class="helvetica uppercase font-14 banner-btn bg-white text-dark">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="helvetica uppercase font-14 banner-btn bg-white text-dark">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+        <div id="page-5" class="page w-100 block bg-dark"></div>
+    </main>
+    <div id="emergent-menu-container" class="emergent-menu-container flex w-100 h-100 position-fixed">
+        <nav class="emergent-menu bg-clear">
+            <ul class="shop-menu-section">
+                <li class="menu-element">
+                    <p class="embold helvetica font-18">Shop</p>
+                </li>
+                <li class="menu-element">
+                    <a href="./typewriters_cat.html" class="a-no-deco menu-link text-dark font-14 helvetica embold">Typewriters</a>
+                </li>
+                <li class="menu-element">
+                    <a href="fountains_cat.html" class="a-no-deco menu-link text-dark font-14 helvetica embold">Fountain Pens</a>
+                </li>
+                <li class="menu-element">
+                    <a href="notebooks_cat.html" class="a-no-deco menu-link text-dark font-14 helvetica embold">Notebooks</a>
+                </li>
+            </ul>
+            <ul class="company-menu-section">
+                <li class="menu-element">
+                    <p class="embold helvetica font-18">Company</p>
+                </li>
+                <li class="menu-element">
+                    <a href="#" class="a-no-deco menu-link text-dark font-14 helvetica embold">Story</a>
+                </li>
+            </ul>
+            <ul class="support-menu-section">
+                <li class="menu-element">
+                    <p class="embold helvetica font-18">Support</p>
+                </li>
+                <li class="menu-element">
+                    <a href="#" class="a-no-deco menu-link text-dark font-14 helvetica embold">Help</a>
+                </li>
+                <li class="menu-element">
+                    <a href="#" class="a-no-deco menu-link text-dark font-14 helvetica embold">Contact</a>
+                </li>
+            </ul>
+            <ul class="stores-menu-section">
+                <li class="menu-element">
+                    <p class="embold helvetica font-18">Stores</p>
+                </li>
+                <li class="menu-element">
+                    <a href="#" class="a-no-deco menu-link text-dark font-14 helvetica embold">Mexico</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <footer class="footer flex flex-column bg-white">
+        <div class="user-cart-container">
+            <div class="cart-container flex">
+                <a href="#" class="a-no-deco text-dark cart-text inline-block helvetica embold font-14">Cart</a>
+                <a href="#" class="flex a-no-deco helvetica cart-icon inline-block bg-dark embold text-white font-14">0</a>
+            </div>
+            <div class="cart-container flex">
+                <a href="#" class="flex a-no-deco cart-icon text-dark">
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
+            <div class="cart-container flex">
+                <a href="#" class="flex a-no-deco cart-icon text-dark">
+                    <i class="fas fa-user"></i>
+                </a>
+            </div>   
+        </div>
+        <div class="page-indicator">
+            <div id="fret-1-d" class="page-fret-box flex">
+                <span class="inline-block helvetica embold font-14">01 / 05</span>
+               <a id="fret-1" onclick="fretChanger(0)" href="#" class="page-fret font-24 condensed embold a-no-deco">
+             </a>
+            </div>
+            <div id="fret-2-d" class="page-fret-box flex">
+                <span class="inline-block helvetica embold font-14">02 / 05</span>
+                <a id="fret-2" onclick="fretChanger(1)" href="#" class="page-fret font-24 condensed embold a-no-deco">
+                </a>
+            </div>
+            <div id="fret-3-d" class="page-fret-box flex">
+                <span class="inline-block helvetica embold font-14">03 / 05</span>
+                <a id="fret-3" onclick="fretChanger(2)" href="#" class="page-fret font-24 condensed embold a-no-deco">
+                </a>
+            </div>
+            <div id="fret-4-d" class="page-fret-box flex">
+                <span class="inline-block helvetica embold font-14">04 / 05</span>
+                <a id="fret-4" onclick="fretChanger(3)" href="#" class="page-fret font-24 condensed embold a-no-deco">
+                </a>
+            </div>
+            <div id="fret-5-d" class="page-fret-box flex">
+                <span class="inline-block helvetica embold font-14">05 / 05</span>
+                <a id="fret-5" onclick="fretChanger(4)" href="#" class="page-fret font-24 condensed embold a-no-deco">
+                </a>
+            </div>
+        </div>
+        <div class="scroll-text-box flex">
+            <p class="scroll-text helvetica font-14">Scroll Down</p>
+        </div>
+    </footer>
+    <script src="scripts/scripts.js"></script> 
+</body>
+</html>
