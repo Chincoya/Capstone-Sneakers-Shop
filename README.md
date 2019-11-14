@@ -4,17 +4,18 @@ Within this repository you will find a HTML/CSS3 implementation of a sneakers sh
 
 ## Getting started
 
-No live version was deployed yet, so, in order to view the page, you must clone the repository using:
+You can download (and modify) the source code by doing:
 
 ```bash
 git clone https://github.com/Chincoya/Capstone-Sneakers-Shop
 ```
+On your command line, and then opening the project folder("./Capstone-Sneakers-Shop") on a text editor with code-highlighting support. 
 
-Then, you can run it in any browser that supports flexbox layout and it's properties as well as
+Also, you can run it in any browser that supports flexbox layout and it's properties as well as
 ```javascript
 document.addEventListener("event", func);
 ```
-syntax. 
+syntax. by opening "./index.html"
 
 ## Insights
 The main page is rendered as a long strip of content with overflow hidden, and is navigable by using the mouse wheel or a finger in a touchscreen. The sections that comprise several parts are presented in some sort od horizontal slideshow, this one navigable with the mouse as well as with a finger. Most of this behavior was made with javascript modifiyng the transform property of elements.
